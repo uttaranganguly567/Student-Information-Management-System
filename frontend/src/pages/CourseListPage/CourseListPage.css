@@ -1,0 +1,15 @@
+/* src/styles/CourseList.css */
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.course-table th, .course-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.course-table th {
+    background-color: #4A4A8A;
+    color: white;
+}

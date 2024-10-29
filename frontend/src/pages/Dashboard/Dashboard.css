@@ -1,0 +1,134 @@
+:root {
+    --primary-color: #4b0082;
+    --secondary-color: #a991d4;
+    --background-gradient: linear-gradient(135deg, #d4bfff, #8f6dc8);
+    --card-color: #a991d4;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--secondary-color);
+    font-family: "Open Sans", sans-serif;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.dash-lists{
+    margin-top: 20px;
+    list-style-type: none;
+}
+
+.side-buttons{
+    height: 50px;
+    width: 125px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: medium;
+    background-color: aquamarine;
+}
+
+.side-buttons:hover{
+    transition: all 0.5s ease;
+    background-color: rgb(128, 187, 232);
+    cursor: pointer;
+}
+
+#dash-text{
+    margin-top: 50px;
+}
+
+.menu-button {
+    position: fixed;
+    font-family: "Montserrat", sans-serif;
+    top: 20px;
+    left: 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s ease;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.main-content {
+    margin-left: 20px;
+    padding: 20px;
+    flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.header h1 {
+    color: var(--primary-color);
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-color);
+    border-radius: 15px;
+    padding: 20px;
+    color: var(--text-color);
+    width: 100%;
+    border: 2px solid black;
+}
+
+.extra-sections {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.announcements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0d6f7;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+.quick-actions button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    cursor: pointer;
+}

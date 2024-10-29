@@ -1,0 +1,28 @@
+/* src/styles/Sidebar.css */
+.sidebar {
+    width: 200px;
+    background-color: #4A4A8A; /* Darker lavender shade */
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -200px;
+    transition: left 0.3s ease;
+    color: white;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar.active {
+    left: 0;
+}

@@ -1,0 +1,26 @@
+/* src/styles/StudentList.css */
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.student-table th, .student-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.student-table th {
+    background-color: #4A4A8A;
+    color: white;
+}
+
+.table-btn {
+    padding: 5px 10px;
+    background-color: #4A4A8A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,15 @@
+/* src/styles/FeeStatus.css */
+.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fee-table th, .fee-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.fee-table th {
+    background-color: #4A4A8A;
+    color: white;
+}
