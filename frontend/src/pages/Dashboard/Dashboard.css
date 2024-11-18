@@ -1,14 +1,14 @@
-:root {
-    --primary-color: #4b0082;
-    --secondary-color: #a991d4;
-    --background-gradient: linear-gradient(135deg, #d4bfff, #8f6dc8);
-    --card-color: #a991d4;
-    --text-color: #ffffff;
+*{
+    color: black;
 }
 
 body {
-    background-color: var(--secondary-color);
+    background-color: #002B5B;
     font-family: "Open Sans", sans-serif;
+}
+
+.cards{
+    color: black;
 }
 
 .dashboard {
@@ -29,7 +29,7 @@ body {
     background-color: aquamarine;
 }
 
-.side-buttons:hover{
+.but:hover{
     transition: all 0.5s ease;
     background-color: rgb(128, 187, 232);
     cursor: pointer;
@@ -57,7 +57,7 @@ body {
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: var(--primary-color);
+    background-color: #E0E7FF;
     color: white;
     padding: 20px;
     position: fixed;
@@ -77,20 +77,16 @@ body {
     transition: margin-left 0.3s ease;
 }
 
-.header h1 {
-    color: var(--primary-color);
-}
-
 .cards {
     display: flex;
     gap: 20px;
 }
 
 .card {
-    background-color: var(--card-color);
+    background-color: #E0E7FF;
     border-radius: 15px;
     padding: 20px;
-    color: var(--text-color);
+    color: black;
     width: 100%;
     border: 2px solid black;
 }

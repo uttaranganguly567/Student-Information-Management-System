@@ -16,10 +16,10 @@ const Dashboard = () => {
                 <button className="menu-button" onClick={toggleSidebar}>
                     ☰
                 </button>
-                <li className='dash-lists'>📚<button className='side-buttons'>Courses</button> </li>
-                <li className='dash-lists'>📊<button className='side-buttons'>Grades</button> </li>
-                <li className='dash-lists'>📅<button className='side-buttons'>Attendance</button></li>
-                <li className='dash-lists'>👤<button className='side-buttons'>Profile</button> </li>
+                <li className='dash-lists'>📚<button className='but side-buttons'>Courses</button> </li>
+                <li className='dash-lists'>📊<button className='but side-buttons'>Grades</button> </li>
+                <li className='dash-lists'>📅<button className='but side-buttons'>Attendance</button></li>
+                <li className='dash-lists'>👤<button className='but side-buttons'>Profile</button> </li>
             </aside>
             <main className="main-content">
                 <header className="header">
@@ -60,8 +60,8 @@ const Dashboard = () => {
                     </div>
                     <div className="card quick-actions">
                         <h3>Quick Actions</h3>
-                        <button>Enroll in a Course</button>
-                        <button>View Grades</button>
+                        <button className='but'>Enroll in a Course</button>
+                        <button className='but'>View Grades</button>
                     </div>
                 </section>
             </main>
