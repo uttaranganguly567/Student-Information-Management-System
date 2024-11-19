@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, reset } from '../features/auth/authSlice';
+import { register, reset } from '../features/auth/authSlice';
 import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -40,7 +40,7 @@ const Login = () => {
             password,
         };
 
-        dispatch(login(userData));
+        dispatch(register(userData));
     };
 
     if (isLoading) {
@@ -48,8 +48,8 @@ const Login = () => {
     }
 
     return (
-        <section className="login">
-            <h1>Login</h1>
+        <section className="register">
+            <h1>Register</h1>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <input
@@ -81,4 +81,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

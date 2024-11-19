@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Dashboard.css';
+import './DashboardPage.css';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {

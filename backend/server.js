@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const authRoutes = require('./routes/authRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const courseRoutes = require('./routes/courseRoutes');
 
 const app = express();
 
@@ -10,13 +13,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Import Routes
-const studentRoutes = require('./routes/studentRoutes');
-const courseRoutes = require('./routes/courseRoutes');
 // Import other routes
 
 // Use Routes
 app.use('/api/students', studentRoutes);
 app.use('/api/courses', courseRoutes);
+app.use('/api/auth', authRoutes);
 // Use other routes
 
 // MongoDB connection
