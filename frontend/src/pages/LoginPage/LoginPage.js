@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, reset } from '../features/auth/authSlice';
+import { login, reset } from '../features/auth/authSlice'; // Assuming redux is set up for auth
 import { useHistory } from 'react-router-dom';
+import axios from 'axios'; // Axios for HTTP requests
 
-const Login = () => {
+const LoginPage = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -22,7 +23,7 @@ const Login = () => {
         }
 
         if (isSuccess || user) {
-            history.push('/');
+            history.push('/dashboard');
         }
 
         dispatch(reset());
@@ -32,15 +33,21 @@ const Login = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
-        const userData = {
-            username,
-            password,
-        };
+        try {
+            // Send login request to backend
+            const response = await axios.post('/api/auth/login', { username, password });
+            
+            // Store the JWT token in localStorage
+            localStorage.setItem('token', response.data.token);
 
-        dispatch(login(userData));
+            // Redirect user to the dashboard
+            history.push('/dashboard');
+        } catch (error) {
+            console.log(error.response.data.message); // Handle error if login fails
+        }
     };
 
     if (isLoading) {
@@ -81,4 +88,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

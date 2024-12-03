@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'; // This imports the CSS for the App component
 
 // Importing reusable components
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
-import ProtectedRoute from '../components/ProtectedRoute';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import ProtectedRoutes from './components';
 
 // Importing pages
-import LoginPage from '../pages/LoginPage';
-import DashboardPage from '../pages/DashboardPage';
-import CoursePage from '../pages/CoursePage';
-import UserProfilePage from '../pages/UserProfilePage';
-import NotFoundPage from '../pages/NotFoundPage';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import CoursePage from './pages/CoursePage';
+import UserProfilePage from './pages/UserProfilePage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
