@@ -2,10 +2,10 @@
 import React from 'react';
 import Navbar from '../../components/Navbar/Navbar.js';
 import Sidebar from '../../components/Sidebar/Sidebar.js';
-import './CourseListPage.css';
+import './CoursePage.css';
 import { Link } from 'react-router-dom';
 
-const CourseListPage = () => {
+const CoursePage = () => {
     const courses = [
         { id: 1, courseName: 'Math 101', year: '1' },
         { id: 2, courseName: 'Physics 102', year: '2' },
@@ -38,4 +38,4 @@ const CourseListPage = () => {
     );
 };
 
-export default CourseListPage;
+export default CoursePage;

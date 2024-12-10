@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './DashboardPage.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
-const Dashboard = () => {
+const DashboardPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
@@ -69,4 +69,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default DashboardPage;
