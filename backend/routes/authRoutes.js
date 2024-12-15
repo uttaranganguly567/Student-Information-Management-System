@@ -1,32 +1,70 @@
 const express = require('express');
-const router = express.Router();
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const Login = require('../models/Login'); // Assuming the path is correct
 
-// Register a new user
+const router = express.Router();
+
+// Registration endpoint
 router.post('/register', async (req, res) => {
-    const user = new User({
-        username: req.body.username,
-        password: req.body.password,
+  const { username, password } = req.body;
+
+  try {
+    // Check if user exists
+    const existingUser = await Login.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
+
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create new user
+    const newUser = new Login({
+      username,
+      password: hashedPassword,
     });
 
-    try {
-        const newUser = await user.save();
-        res.status(201).json(newUser);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
+    await newUser.save();
+
+    // Generate JWT
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: '1h',
+    });
+
+    res.status(201).json({ token });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
 });
 
-// Login a user
+// Login endpoint
 router.post('/login', async (req, res) => {
-    const user = await User.findOne({ username: req.body.username });
-    if (!user || !await user.comparePassword(req.body.password)) {
-        return res.status(400).json({ message: 'Invalid credentials' });
+  const { username, password } = req.body;
+
+  try {
+    // Check if user exists
+    const user = await Login.findOne({ username });
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    // Validate password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid credentials' });
+    }
+
+    // Generate JWT
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '1h',
+    });
+
     res.json({ token });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
 });
 
 module.exports = router;
