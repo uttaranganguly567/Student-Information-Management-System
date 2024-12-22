@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'; // This imports the CSS for the App component
 
 // Importing reusable components
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-import ProtectedRoutes from './components';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Importing pages
-import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
-import CoursePage from './pages/CoursePage';
-import UserProfilePage from './pages/UserProfilePage';
-import NotFoundPage from './pages/NotFoundPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import CoursePage from './pages/CoursePage/CoursePage';
+//import UserProfilePage from './pages/UserProfilePage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,14 +51,14 @@ function App() {
                                     </ProtectedRoute>
                                 }
                             />
-                            <Route
+                            {/* <Route
                                 path="/profile"
                                 element={
                                     <ProtectedRoute isAuthenticated={isAuthenticated}>
                                         <UserProfilePage />
                                     </ProtectedRoute>
                                 }
-                            />
+                            /> */}
 
                             {/* Catch-All Route for Not Found Pages */}
                             <Route path="*" element={<NotFoundPage />} />
