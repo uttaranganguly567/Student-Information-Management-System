@@ -23,10 +23,8 @@ app.use('/api/auth', authRoutes);
 // Use other routes
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://uttaranganguly20:uttaran123@cluster0.mpxcf.mongodb.net/', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log('Connected to MongoDB'))
+mongoose.connect('mongodb+srv://uttaranganguly20:uttaran123@cluster0.mpxcf.mongodb.net/')
+  .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
 
 // Server
