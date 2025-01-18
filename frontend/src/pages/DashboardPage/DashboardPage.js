@@ -16,14 +16,14 @@ const Dashboard = () => {
                 <button className="menu-button" onClick={toggleSidebar}>
                     ☰
                 </button>
-                <li className='dash-lists'>📚<button className='but side-buttons'>Courses</button> </li>
-                <li className='dash-lists'>📊<button className='but side-buttons'>Grades</button> </li>
-                <li className='dash-lists'>📅<button className='but side-buttons'>Attendance</button></li>
-                <li className='dash-lists'>👤<button className='but side-buttons'>Profile</button> </li>
+                <li className='dash-lists'>📚<button className='side-buttons'>Courses</button> </li>
+                <li className='dash-lists'>📊<button className='side-buttons'>Grades</button> </li>
+                <li className='dash-lists'>📅<button className='side-buttons'>Attendance</button></li>
+                <li className='dash-lists'>👤<button className='side-buttons'>Profile</button> </li>
             </aside>
             <main className="main-content">
                 <header className="header">
-                    <h1>Welcome, Student</h1>
+                    <h2>Welcome, Student</h2>
                     <p>Your academic overview at a glance.</p>
                 </header>
                 

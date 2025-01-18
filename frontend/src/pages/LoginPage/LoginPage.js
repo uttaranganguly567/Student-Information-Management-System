@@ -1,86 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { /*login,*/ reset } from '../../features/auth/authSlice'; 
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Axios for HTTP requests
+import React, { useState } from 'react';
 
-const LoginPage = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
+function LoginPage() {
+  const [selectedUser, setSelectedUser] = useState(null);
 
-  const { username, password } = formData;
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate(); 
-
-  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (isError) {
-      console.log(message);
-    }
-
-    if (isSuccess || user) {
-      navigate('/dashboard'); 
-    }
-
-    dispatch(reset());
-  }, [user, isError, isSuccess, message, dispatch, navigate]); // Include 'navigate' in dependencies
-
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleUserSelect = (userType) => {
+    setSelectedUser(userType);
   };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post('/api/auth/login', { username, password });
-      localStorage.setItem('token', response.data.token);
-      navigate('/dashboard'); 
-    } catch (error) {
-      console.log(error.response.data.message); 
-    }
-  };
-
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
 
   return (
-    <section className="login">
-      <h1>Login</h1>
-      <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            name="username"
-            value={username}
-            placeholder="Enter your username"
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Enter password"
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <button type="submit" className="btn btn-primary">
-            Submit
+    <div className="login-container">
+      <div className="left-panel">
+        <h2>Welcome Back!</h2>
+        <p>Select your login type and proceed to the system.</p>
+        <button className="signup-btn">Sign Up</button>
+      </div>
+
+      <div className="right-panel">
+        <div className="user-selection">
+          <button 
+            className="user-btn" 
+            id="admin-btn" 
+            onClick={() => handleUserSelect('admin')}
+          >
+            Admin Login
+          </button>
+          <button 
+            className="user-btn" 
+            id="student-btn" 
+            onClick={() => handleUserSelect('student')}
+          >
+            Student Login
+          </button>
+          <button 
+            className="user-btn" 
+            id="teacher-btn" 
+            onClick={() => handleUserSelect('teacher')}
+          >
+            Teacher Login
           </button>
         </div>
-      </form>
-    </section>
+
+        {selectedUser && (
+          <form 
+            action="login-process.php" 
+            method="post" 
+            className="login-form" 
+            id="loginForm"
+          >
+            <h2 id="login-title">SIGN IN</h2>
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <div className="options">
+              <label>
+                <input type="checkbox" /> Keep me logged in
+              </label>
+              <a href="#" className="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" className="login-btn">Sign In</button>
+          </form>
+        )} 
+
+      </div>
+    </div>
   );
-};
+}
 
 export default LoginPage;

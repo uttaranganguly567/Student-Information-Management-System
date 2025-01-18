@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #002B5B;
+    background-color: #53a3ff;
     font-family: "Open Sans", sans-serif;
 }
 
@@ -20,6 +20,11 @@ body {
     list-style-type: none;
 }
 
+.header h1{
+    color: black;
+    margin-top: 500px;
+}
+
 .side-buttons{
     height: 50px;
     width: 125px;
@@ -27,6 +32,10 @@ body {
     border-radius: 10px;
     font-size: medium;
     background-color: aquamarine;
+}
+
+.but{
+    color: chocolate;
 }
 
 .but:hover{
@@ -62,7 +71,7 @@ body {
     padding: 20px;
     position: fixed;
     top: 0;
-    left: -250px;
+    left: -2500px;
     transition: left 0.3s ease;
 }
 

@@ -14,7 +14,7 @@ const CoursePage = () => {
     return (
         <div className="page-container">
             <Navbar />
-            <Sidebar />
+            {/* <Sidebar /> */}
             <div className="content">
                 <h2>Course List</h2>
                 <table className="course-table">
