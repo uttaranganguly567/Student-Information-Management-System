@@ -31,7 +31,7 @@ A portal for educators to manage their courses and student interactions.
 
 ### 🎓 Student
 
-[cite\_start]A personal portal for students to manage their academic life [cite: 85-92].
+A personal portal for students to manage their academic life.
 
   * **Student Dashboard:** View a personalized dashboard with key stats like "My Fees Due" and "Enrolled Courses Count".
   * **My Profile:** View and edit personal information (name, age, mobile).
