@@ -1,26 +1,129 @@
-/* src/styles/StudentList.css */
-.student-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+/* frontend/src/pages/StudentListPage/StudentListPage.css */
+/* --- FULL REPLACEABLE CODE (Removes 'composes') --- */
+
+.student-list-container {
+  padding: 2rem;
+  max-width: 1200px; /* Constrain width */
+  margin: 0 auto;
 }
 
-.student-table th, .student-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
+/* Header section (title + button) */
+.student-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 1rem;
+}
+
+.student-list-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* "Add Student" button style */
+.btn-add-student {
+  display: inline-flex; /* Use flex to align icon */
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-add-student:hover {
+  background-color: var(--primary-color-hover);
+}
+
+/* Table styles */
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.student-table th,
+.student-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  vertical-align: middle;
 }
 
 .student-table th {
-    background-color: #4A4A8A;
-    color: white;
+  background-color: var(--bg-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color-light);
 }
 
-.table-btn {
-    padding: 5px 10px;
-    background-color: #4A4A8A;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.student-table tbody tr:last-child td {
+  border-bottom: none;
 }
+
+.student-table tbody tr:hover {
+  background-color: var(--bg-color);
+}
+
+/* Action Buttons Cell */
+.student-actions {
+    display: flex;
+    gap: 0.5rem; /* Space between buttons */
+    white-space: nowrap;
+}
+
+/* Generic Action Button styles (for View/Delete) */
+.btn-action-view,
+.btn-action-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+  gap: 0.3rem; /* Space between icon and text */
+}
+
+/* "View Profile" button style */
+.btn-action-view {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+.btn-action-view:hover {
+  background-color: var(--primary-color-hover);
+}
+
+/* "Delete" button style */
+.btn-action-delete {
+  background-color: #ef4444; /* Red */
+  color: white;
+}
+.btn-action-delete:hover {
+  background-color: #dc2626; /* Darker Red */
+}
+
+/* --- THIS IS THE FIX --- */
+/* Legacy class names block removed to stop warnings */
+/* ----------------------- */

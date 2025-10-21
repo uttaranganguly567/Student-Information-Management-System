@@ -1,21 +1,16 @@
-import React, { useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+// frontend/src/components/PrivateRoutes.js
+// --- FULL REPLACEABLE CODE ---
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-    const { user } = useContext(AuthContext);
-    return (
-        <Route
-            {...rest}
-            render={props =>
-                user ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect to="/login" />
-                )
-            }
-        />
-    );
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+const PrivateRoutes = () => {
+  const { user } = useSelector((state) => state.auth);
+
+  // If user is logged in, show the page.
+  // Otherwise, redirect to the login page.
+  return user ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
-export default PrivateRoute;
+export default PrivateRoutes;

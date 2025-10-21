@@ -1,0 +1,159 @@
+/* frontend/src/pages/AssignmentSubmissionsPage/AssignmentSubmissionsPage.css */
+/* --- FULL REPLACEABLE CODE (Fixed Actions Cell Layout) --- */
+
+.submissions-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.submissions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.submissions-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.btn-back:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+
+.submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+  table-layout: fixed;
+}
+
+.submissions-table th,
+.submissions-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.submissions-table th {
+  background-color: var(--bg-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color-light);
+}
+
+.submissions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.submissions-table tbody tr:hover {
+  background-color: var(--bg-color);
+}
+
+/* Column Widths & Styles */
+.submissions-table th:nth-child(1), .submissions-table td:nth-child(1) { width: 15%; } /* Name */
+.submissions-table th:nth-child(2), .submissions-table td:nth-child(2) { width: 12%; } /* Roll */
+.submissions-table th:nth-child(3), .submissions-table td:nth-child(3) { width: 13%; font-size: 0.9em; color: var(--text-color-light); } /* Submitted */
+.submissions-table th.content-header, .submissions-table td.submission-content-cell { width: 25%; white-space: pre-wrap; vertical-align: top; } /* Content */
+.submissions-table th.grade-header, .submissions-table td.grade-input-cell { width: 10%; } /* Grade */
+.submissions-table th.feedback-header, .submissions-table td.feedback-input-cell { width: 15%; } /* Feedback */
+.submissions-table th.actions-header, .submissions-table td.actions-cell { width: 10%; text-align: center;} /* Actions */
+
+
+/* Input field styles */
+.grade-input,
+.feedback-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+.feedback-input { resize: vertical; min-height: 50px; }
+.grade-input:focus, .feedback-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 2px var(--primary-color-hover); }
+
+/* --- ADJUSTED .actions-cell STYLE --- */
+.actions-cell {
+    /* Use default flex direction (row) or remove flex if centering is enough */
+    /* display: flex; */
+    /* align-items: center; */ /* Center vertically */
+    /* justify-content: center; */ /* Center horizontally */
+    text-align: center; /* Center inline content like button and span */
+    vertical-align: middle; /* Vertical align table cell content */
+    padding: 0.5rem; /* Adjust padding if needed */
+}
+/* ---------------------------------- */
+
+/* Save Grade Button */
+.btn-grade {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: auto;
+  min-width: 90px;
+  font-family: inherit;
+  margin-bottom: 0.5rem; /* Add space below button if status appears below */
+}
+.btn-grade:hover { background-color: var(--primary-color-hover); transform: translateY(-1px); }
+.btn-grade:disabled { background-color: var(--text-color-light); cursor: not-allowed; opacity: 0.7; transform: none; }
+
+/* --- ADJUSTED Status message styles --- */
+.save-success,
+.save-error {
+    display: block; /* Make span take full width for centering */
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    text-align: center; /* Center text within the span */
+}
+.save-success { color: #16a34a; } /* Green */
+.save-error { color: #c92a2a; } /* Red */
+
+[data-theme='dark'] .save-success { color: #4ade80; }
+[data-theme='dark'] .save-error { color: #fecaca; }
+/* ------------------------------------ */

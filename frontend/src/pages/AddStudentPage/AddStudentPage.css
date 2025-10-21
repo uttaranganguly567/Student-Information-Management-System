@@ -1,0 +1,129 @@
+/* frontend/src/pages/AddStudentPage/AddStudentPage.css */
+
+.add-student-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.add-student-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.add-student-form {
+  padding: 2rem;
+  background-color: var(--card-bg-color);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  display: grid;
+  /* Make a 2-column grid for the form */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make some fields span both columns */
+.form-group:nth-child(1), /* Name */
+.form-group:nth-child(2), /* Roll */
+.form-group:nth-child(3) { /* Department */
+  grid-column: 1 / -1; /* Span full width */
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-light);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: inherit; /* Use the project font */
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-hover);
+}
+
+.form-error {
+  grid-column: 1 / -1; /* Span full width */
+  color: #c92a2a;
+  background-color: #ffe3e3;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+[data-theme='dark'] .form-error {
+  background-color: #591b1b;
+  color: #fecaca;
+}
+
+.btn-submit {
+  grid-column: 1 / -1; /* Span full width */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.btn-submit:disabled {
+  background-color: var(--text-color-light);
+  cursor: not-allowed;
+}
+
+/* On small screens, stack to 1 column */
+@media (max-width: 768px) {
+  .add-student-form {
+    grid-template-columns: 1fr;
+  }
+  .form-group:nth-child(1),
+  .form-group:nth-child(2),
+  .form-group:nth-child(3) {
+    grid-column: 1; /* Go back to 1 column */
+  }
+}
+
+/* frontend/src/pages/AddStudentPage/AddStudentPage.css */
+
+/* ... (all your existing styles) ... */
+
+/* --- ADD THIS NEW STYLE FOR CHECKBOXES --- */
+.form-group-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.form-group-checkbox label {
+  margin-bottom: 0; /* Override default label margin */
+  font-weight: 600;
+  color: var(--text-color);
+}
+.form-group-checkbox input {
+  width: auto; /* Checkboxes should not be full width */
+}

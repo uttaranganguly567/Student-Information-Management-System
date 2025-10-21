@@ -1,13 +1,102 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* frontend/src/index.css */
+/* --- FULL REPLACEABLE CODE --- */
+
+/* :root (Light Mode) variables */
+:root {
+  /* Layout Variables */
+  --navbar-height: 60px;
+  --sidebar-width: 240px;
+
+  /* Light Mode Colors */
+  --bg-color: #f8fafc; /* Very light gray */
+  --card-bg-color: #ffffff;
+  --sidebar-bg: #ffffff;
+  --navbar-bg: #ffffff;
+  
+  --text-color: #0f172a; /* Dark slate */
+  --text-color-light: #64748b; /* Lighter slate */
+  
+  --border-color: #e2e8f0; /* Light gray border */
+  
+  /* Primary color (cool slate gray) */
+  --primary-color: #475569; 
+  --primary-color-hover: #334155;
+
+  /* Card colors from Dashboard */
+  --stat-color-1: #38bdf8; /* sky */
+  --stat-color-2: #22c55e; /* green */
+  --stat-color-3: #f97316; /* orange */
+
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* [data-theme='dark'] (Dark Mode) variables */
+[data-theme='dark'] {
+  /* Dark Mode Colors */
+  --bg-color: #0f172a; /* Dark slate */
+  --card-bg-color: #1e293b;
+  --sidebar-bg: #1e293b;
+  --navbar-bg: #1e293b;
+
+  --text-color: #e2e8f0; /* Light gray */
+  --text-color-light: #94a3b8; /* Lighter slate */
+
+  --border-color: #334155; /* Grayish border */
+
+  /* Primary color (lighter slate gray) */
+  --primary-color: #94a3b8;
+  --primary-color-hover: #e2e8f0;
+  
+  /* Card colors */
+  --stat-color-1: #38bdf8;
+  --stat-color-2: #22c55e;
+  --stat-color-3: #f97316;
+
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Font Family */
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Theme Colors & Transition */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+/* Remove default browser margins */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  margin-top: 0; /* Removes space above titles */
+}
+
+p, span, label, li, a {
+  color: var(--text-color);
+  margin: 0; /* Removes default paragraph margins */
+}
+
+/* Style for buttons made to look like links (used in LoginPage) */
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--primary-color, #475569);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+.link-button:hover {
+  color: var(--primary-color-hover, #334155);
 }

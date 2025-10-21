@@ -1,0 +1,30 @@
+/* frontend/src/components/MainAppLayout/MainAppLayout.css */
+/* --- FULL REPLACEABLE CODE --- */
+
+.app-container {
+  display: flex;
+  margin-top: var(--navbar-height, 60px); 
+}
+
+.main-content {
+  flex-grow: 1;
+  min-height: calc(100vh - var(--navbar-height, 60px));
+  background-color: var(--bg-color); 
+  
+  /* --- THIS IS THE FIX --- */
+  /* Transition the padding-left smoothly */
+  transition: padding-left 0.3s ease; 
+  
+  /* Set initial padding (Top=0, R/L=2rem, Bottom=2rem) */
+  /* AND set the initial left padding to match the OPEN sidebar */
+  padding: 0 2rem 2rem var(--sidebar-width); 
+  
+  /* Remove any accidental top margin */
+  margin-top: 0; 
+  /* ----------------------- */
+}
+
+.main-content.sidebar-closed {
+  /* When closed, reduce the left padding */
+  padding-left: 80px; 
+}

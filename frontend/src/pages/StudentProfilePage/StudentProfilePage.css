@@ -1,37 +1,120 @@
-/* src/styles/StudentProfile.css */
-.page-container {
-    padding: 20px;
-}
-
-.page-title {
-    font-size: 24px;
-    color: #4A4A8A;
-}
+/* frontend/src/pages/StudentProfilePage/StudentProfilePage.css */
+/* --- FULL REPLACEABLE CODE (FIXED) --- */
 
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background-color: #f4f4f8;
-    padding: 20px;
-    border-radius: 8px;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.profile-info p {
-    color: #666;
-    font-size: 16px;
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; /* Allows buttons to wrap on small screens */
+  gap: 1rem; /* Adds space between title and buttons */
+}
+
+.profile-name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
 }
 
 .profile-actions {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 1rem; /* Space between Edit and Delete buttons */
 }
 
-.action-btn {
-    padding: 8px 15px;
-    background-color: #4A4A8A;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Edit Button Style */
+.btn-edit {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.btn-edit:hover {
+  background-color: var(--primary-color-hover);
+}
+
+/* Delete Button Style */
+.btn-delete {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background-color: #c92a2a; /* Red */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit; /* Ensure font matches */
+}
+
+.btn-delete:hover {
+  background-color: #a62323;
+}
+
+/* The main profile info card */
+.profile-card {
+  padding: 2.5rem;
+  background-color: var(--card-bg-color);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.profile-details-grid {
+  display: grid;
+  /* Creates a responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; /* Space between info items */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.info-icon {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
 }

@@ -1,0 +1,263 @@
+/* frontend/src/pages/MyAssignmentsPage/MyAssignmentsPage.css */
+/* --- CREATE THIS NEW FILE --- */
+
+/* Import base styles from CourseAssignmentsPage */
+@import '../CourseAssignmentsPage/CourseAssignmentsPage.css';
+
+/* Add styles for grouping by course */
+.assignment-course-group {
+  margin-bottom: 2.5rem; /* Space between course groups */
+}
+
+/* frontend/src/pages/MyAssignmentsPage/MyAssignmentsPage.css */
+
+/* ... (existing styles) ... */
+
+.assignment-course-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1.5rem; /* Keep existing bottom margin */
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary-color);
+  /* --- ADD THIS --- */
+  margin-top: 1rem; /* Add some space above if it's not the first group */
+  /* --------------- */
+}
+
+/* Add margin *above* the list if the title margin isn't enough */
+.assignment-course-group .assignments-list {
+    margin-top: 1rem; /* Space between course title and assignment items */
+}
+
+
+/* ... (rest of the styles) ... */
+
+/* Adjust assignment title within the group */
+.assignment-course-group .assignment-title {
+    font-size: 1.15rem; /* Make assignment title slightly smaller than course title */
+}
+
+/* Style for the submit button (placeholder) */
+.btn-submit-assignment {
+  display: inline-block;
+  padding: 0.5rem 1.2rem; /* Slightly more padding */
+  font-size: 0.9rem;
+  font-weight: 600; /* Bolder */
+  text-decoration: none;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Add transform transition */
+  font-family: inherit; /* Ensure font matches */
+}
+
+.btn-submit-assignment:hover {
+    background-color: var(--primary-color-hover);
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.btn-submit-assignment:disabled {
+    background-color: var(--text-color-light);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* frontend/src/pages/MyAssignmentsPage/MyAssignmentsPage.css */
+
+/* ... (existing styles) ... */
+
+/* Style for the submit button */
+
+/* Remove disabled styles if you removed the disabled attribute */
+/*
+.btn-submit-assignment:disabled {
+    background-color: var(--text-color-light);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+*/
+
+/* frontend/src/pages/MyAssignmentsPage/MyAssignmentsPage.css */
+
+/* ... (existing styles) ... */
+
+/* --- ADD THESE STYLES --- */
+
+.submission-form {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.submission-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical; /* Allow vertical resize */
+    min-height: 60px;
+}
+.submission-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color-hover);
+}
+
+.submission-error {
+    color: #c92a2a;
+    font-size: 0.9rem;
+    margin-top: -0.25rem; /* Reduce gap */
+}
+[data-theme='dark'] .submission-error {
+    color: #fecaca;
+}
+
+.submission-success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    color: #065f46; /* Dark Green */
+    font-weight: 600;
+    text-align: center;
+}
+[data-theme='dark'] .submission-success-message {
+    color: #a7f3d0; /* Light Green */
+}
+
+
+/* Adjust submit button position */
+.btn-submit-assignment {
+   align-self: flex-end; /* Push button to the right */
+   width: auto; /* Don't make it full width */
+   min-width: 150px; /* Give it some minimum width */
+}
+
+/* Hide original button in meta if using the form */
+.assignment-meta .btn-submit-assignment {
+    display: none;
+}
+
+/* frontend/src/pages/MyAssignmentsPage/MyAssignmentsPage.css */
+
+/* ... (existing styles) ... */
+
+/* --- ADD/MODIFY THESE STYLES --- */
+
+/* Container for displaying submission details */
+.submission-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.submission-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Style for the submitted content paragraph */
+.submitted-content {
+    font-size: 0.95rem;
+    color: var(--text-color-light); /* Lighter text for submitted content */
+    background-color: var(--bg-color);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+    border: 1px solid var(--border-color);
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Add scroll if needed */
+}
+
+/* Section for grade and feedback */
+.grade-feedback-section {
+    margin-bottom: 0.75rem;
+    display: flex; /* Arrange grade and feedback side-by-side potentially */
+    flex-direction: column; /* Stack them */
+    gap: 0.75rem; /* Space between grade and feedback */
+}
+
+.grade-feedback-item {
+    font-size: 0.95rem;
+}
+
+.grade-feedback-item strong {
+    color: var(--text-color);
+    margin-right: 0.5rem;
+    display: inline-block;
+    min-width: 60px; /* Align labels */
+}
+
+.grade-value {
+    font-weight: 700; /* Bolder grade */
+    color: var(--stat-color-2); /* Use green for graded */
+    background-color: var(--bg-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--stat-color-2);
+}
+.grade-value.not-graded { /* Style if not graded yet */
+    color: var(--text-color-light);
+    border-color: var(--border-color);
+    font-style: italic;
+}
+[data-theme='dark'] .grade-value {
+    color: #4ade80;
+    border-color: #4ade80;
+}
+[data-theme='dark'] .grade-value.not-graded {
+    color: var(--text-color-light);
+    border-color: var(--border-color);
+}
+
+.feedback-content {
+    font-size: 0.95rem;
+    color: var(--text-color-light);
+    margin-top: 0.25rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--border-color);
+    white-space: pre-wrap; /* Preserve formatting */
+}
+
+.submitted-time {
+    font-size: 0.85rem;
+    color: var(--text-color-light);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Style for loading state within AssignmentItem */
+.assignment-item.loading {
+    opacity: 0.6;
+    padding: 1.5rem;
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    color: var(--text-color-light);
+}
+/* Style for error state within AssignmentItem */
+.assignment-item.error {
+    padding: 1.5rem;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+}
+[data-theme='dark'] .assignment-item.error {
+     background-color: #7f1d1d;
+     color: #fecaca;
+     border-color: #ef4444;
+}

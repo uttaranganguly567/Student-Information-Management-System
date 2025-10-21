@@ -1,15 +1,220 @@
-/* src/styles/CourseList.css */
-.course-table {
-    width: 100%;
-    border-collapse: collapse;
+/* frontend/src/pages/CoursePage/CoursePage.css */
+/* --- FULL REPLACEABLE CODE --- */
+
+.course-list-container {
+  padding: 2rem;
 }
 
-.course-table th, .course-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
+/* Header (Title + Button) */
+.course-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.course-list-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.btn-add-course {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.btn-add-course:hover {
+  background-color: var(--primary-color-hover);
+}
+
+/* Table */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.course-table th,
+.course-table td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
 .course-table th {
-    background-color: #4A4A8A;
-    color: white;
+  background-color: var(--bg-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color-light);
+}
+
+.course-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.course-table tbody tr:hover {
+  background-color: var(--bg-color);
+}
+
+/* Action Buttons */
+.course-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-edit-course,
+.btn-delete-course {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-edit-course {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.btn-edit-course:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.btn-delete-course {
+  background-color: #c92a2a;
+  color: #ffffff;
+}
+
+.btn-delete-course:hover {
+  background-color: #a62323;
+}
+
+/* frontend/src/pages/CoursePage/CoursePage.css */
+
+/* ... (Your existing styles for header, table, edit/delete buttons) ... */
+
+/* --- ADD THESE NEW STYLES --- */
+
+/* Enroll Button Style */
+.btn-enroll-course {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600; /* Make it bolder */
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #22c55e; /* Green */
+  color: #ffffff;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.btn-enroll-course:hover {
+  background-color: #16a34a; /* Darker Green */
+}
+
+.btn-enroll-course:disabled {
+  background-color: var(--text-color-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error state for enroll button */
+.btn-enroll-course.error {
+  background-color: #ef4444; /* Red */
+  font-size: 0.8rem; /* Make text smaller to fit message */
+}
+.btn-enroll-course.error:hover {
+  background-color: #dc2626; /* Darker Red */
+}
+
+
+/* Success Message Style */
+.enrollment-success {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #16a34a; /* Dark Green */
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .enrollment-success {
+  color: #4ade80; /* Lighter Green for dark mode */
+}
+
+/* frontend/src/pages/CoursePage/CoursePage.css */
+
+/* ... (Your existing styles for header, table, edit/delete buttons) ... */
+
+/* --- ADD THESE NEW STYLES --- */
+
+/* Enroll Button Style */
+.btn-enroll-course {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600; /* Make it bolder */
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #22c55e; /* Green */
+  color: #ffffff;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.btn-enroll-course:hover {
+  background-color: #16a34a; /* Darker Green */
+}
+
+.btn-enroll-course:disabled {
+  background-color: var(--text-color-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error state for enroll button */
+.btn-enroll-course.error {
+  background-color: #ef4444; /* Red */
+  font-size: 0.8rem; /* Make text smaller to fit message */
+}
+.btn-enroll-course.error:hover {
+  background-color: #dc2626; /* Darker Red */
+}
+
+
+/* Success Message Style */
+.enrollment-success {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #16a34a; /* Dark Green */
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .enrollment-success {
+  color: #4ade80; /* Lighter Green for dark mode */
 }

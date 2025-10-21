@@ -1,12 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './store';
-import App from './App';
+// frontend/src/index.js
+// --- FULL REPLACEABLE CODE ---
 
-ReactDOM.render(
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store'; // <-- THIS IS THE FIX (no more curly braces)
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <React.StrictMode>
     <Provider store={store}>
+      <BrowserRouter>
         <App />
-    </Provider>,
-    document.getElementById('root')
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
 );
+
+reportWebVitals();

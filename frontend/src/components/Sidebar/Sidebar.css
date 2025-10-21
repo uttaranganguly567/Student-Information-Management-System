@@ -1,28 +1,129 @@
-/* src/styles/Sidebar.css */
+/* frontend/src/components/Sidebar/Sidebar.css */
 .sidebar {
-    width: 200px;
-    background-color: #4A4A8A; /* Darker lavender shade */
-    height: 100vh;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: -200px;
-    transition: left 0.3s ease;
-    color: white;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navbar-height));
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  z-index: 900;
+
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  padding: 1.5rem 1rem;
+  
+  /* 1. Add smooth transition for the width */
+  transition: width 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+  overflow-x: hidden; /* Hide content when shrinking */
 }
 
-.sidebar a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 15px;
-    font-size: 18px;
+/* 2. NEW: Styles for the closed state */
+.sidebar.closed {
+  width: 80px; /* A bit wider than just the icon */
+  padding: 1.5rem;
 }
 
-.sidebar a:hover {
-    text-decoration: underline;
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar.active {
-    left: 0;
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-color-light);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  
+  /* 3. Stop text from wrapping */
+  white-space: nowrap; 
+}
+
+.nav-link:hover {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.nav-link.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.nav-link svg {
+  margin-right: 1rem;
+  font-size: 1.25rem; /* Made icons slightly bigger */
+  flex-shrink: 0;
+  width: 24px;
+  transition: margin 0.3s ease; /* Smooth transition */
+}
+
+/* 4. NEW: Style for the link text */
+.nav-link-text {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* 5. NEW: When closed, center the icon and hide the text */
+.sidebar.closed .nav-link {
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+.sidebar.closed .nav-link svg {
+  margin-right: 0;
+  font-size: 1.4rem; /* Make icon bigger when sidebar is closed */
+}
+
+.sidebar.closed .nav-link-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* frontend/src/components/Sidebar/Sidebar.css */
+/* --- ADD THIS CSS TO THE BOTTOM --- */
+
+/* ... (all your existing .sidebar, .nav-link, etc. styles) ... */
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* Use our theme colors */
+  color: var(--text-color-light);
+  border-top: 1px solid var(--border-color);
+  
+  /* Match the sidebar's show/hide transition */
+  transition: opacity 0.2s ease;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.footer-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.footer-name {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Hide the text when the sidebar is closed */
+.sidebar.closed .sidebar-footer {
+  opacity: 0;
+  pointer-events: none;
 }

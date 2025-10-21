@@ -1,38 +1,298 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: 'Arial', sans-serif;
+  background-color: #3e91e1;
+  color: #333;
+} */
+
+/* Main App Container */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
+/* Navigation Styles */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0a74da;
+  padding: 1rem 2rem;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout-button {
+  background-color: #dc3545;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-top: 64px; /* Height of navigation */
+  padding: 2rem;
+  width: 100%;
+}
+
+/* Authentication Pages */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.auth-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0a74da;
+  font-size: 1.75rem;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #0a74da;
+  box-shadow: 0 0 0 2px rgba(10, 116, 218, 0.1);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0a74da;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0862b9;
+}
+
+/* Dashboard Cards */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #0a74da;
+  margin-bottom: 1rem;
+}
+
+/* Table Styles */
+.data-table {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #f0f4f9;
+      padding: 1rem;
+  }
+  
+  .dashboard-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .main-content {
+      padding: 1rem;
   }
 }
+
+/* Animation Classes */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* frontend/src/App.css */
+
+/* Add this to your :root in index.css */
+/*
+:root {
+  --sidebar-width: 250px;
+  --navbar-height: 60px;
+}
+*/
+
+.app-container {
+  display: flex;
+  /* Use CSS variables for easy changes */
+  margin-top: var(--navbar-height, 60px); 
+}
+
+.main-content {
+  flex-grow: 1;
+  /* Use CSS variables for easy changes */
+  padding-left: var(--sidebar-width, 250px);
+  padding: 2rem;
+  min-height: calc(100vh - var(--navbar-height, 60px));
+  background-color: var(--bg-color); /* This comes from your dark mode setup */
+  transition: padding-left 0.3s ease; /* For collapsible sidebar later */
+}
+
+/* This is for when you are on the login page (no sidebar) */
+.main-content-full {
+  padding-left: 0;
+}
+
+/* You will need to style your Navbar and Sidebar */
+/* For example, in frontend/src/components/Navbar/Navbar.css */
+/*
+.navbar {
+  height: var(--navbar-height, 60px);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--card-bg-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;
+}
+*/
+
+/* For example, in frontend/src/components/Sidebar/Sidebar.css */
+/*
+.sidebar {
+  width: var(--sidebar-width, 250px);
+  height: calc(100vh - var(--navbar-height, 60px));
+  position: fixed;
+  top: var(--navbar-height, 60px);
+  left: 0;
+  background-color: var(--card-bg-color);
+  border-right: 1px solid var(--border-color);
+  padding: 1rem;
+  z-index: 900;
+}
+*/
+/* frontend/src/App.css */
+
