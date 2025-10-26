@@ -2,8 +2,6 @@
 
 A comprehensive MERN stack application designed to manage all aspects of a modern educational institution. This system provides distinct portals for Administrators, Teachers, and Students, each with role-specific functionalities for managing courses, fees, assignments, and personal information.
 
-This project is built based on the features outlined in the **Software Requirements Specification (SRS)**
-
 ## Features Implemented
 
 The system is built around three main user roles as specified in the SRS:
@@ -143,6 +141,16 @@ You must run both the backend and frontend servers simultaneously in two separat
     ```
 
     Your React application should now be running and will open automatically on `http://localhost:3000`.
+
+## 🚀 Live Demo
+
+The application is deployed on Render:
+
+**[https://campus-core.onrender.com/](https://campus-core.onrender.com/)**
+
+*(Note: The backend is on a free Render plan, so it may take 30-60 seconds to "wake up" on the first load.)*
+
+-----
 
 ## Contributors
 
