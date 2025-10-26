@@ -1,4 +1,4 @@
-# Student Information Management System
+# Campus Core
 
 A comprehensive MERN stack application designed to manage all aspects of a modern educational institution. This system provides distinct portals for Administrators, Teachers, and Students, each with role-specific functionalities for managing courses, fees, assignments, and personal information.
 
